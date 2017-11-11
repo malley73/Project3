@@ -2,25 +2,25 @@ const router = require("express").Router();
 
 // This is brought in to make database operations easier..
 // finding, updating, deleting, etc..
-const booksController = require("../../controllers/booksController");
+const userController = require("../../controllers/userController");
 
-// Matches with "/api/books" 
+// Matches with "/api/users" 
 router.route("/")
   // with GET
   .get(function() { 
     console.log("this is a test"); 
   });
   // with POST
-  // .post(booksController.create);
+  // .post(userController.create);
 
-// Matches with "/api/books/:id"
+// Matches with "/api/users/:id"
 router
   .route("/:id")
   // with GET
-  .get(booksController.findById)
+  .get(userController.findById)
   // with PUT
-  .put(booksController.update)
+  .put(userController.update)
   // with DELETE
-  .delete(booksController.remove);
+  .delete(userController.remove);
 
 module.exports = router;
