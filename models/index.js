@@ -1,4 +1,4 @@
 module.exports = {
-  User: require("./users"),
-  List: require('./lists'),
+  User: require("./user"),
+  List: require('./list'),
 };

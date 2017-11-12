@@ -2,14 +2,15 @@ const router = require("express").Router();
 
 // This is brought in to make database operations easier..
 // finding, updating, deleting, etc..
-const listController = require("../../controllers/listController");
+const listsController = require("../../controllers/listsController");
 
 // Matches with "/api/lists" 
 router.route("/")
   // with GET
-  .get(function() { 
-    console.log("this is a test"); 
-  });
+  // .get(function() { 
+  //   console.log("this is a test"); 
+  // });
+  .get(listsController.findAll);
   // with POST
   // .post(listController.create);
 
@@ -17,10 +18,10 @@ router.route("/")
 router
   .route("/:id")
   // with GET
-  .get(listController.findById)
+  .get(listsController.findById)
   // with PUT
-  .put(listController.update)
+  .put(listsController.update)
   // with DELETE
-  .delete(listController.remove);
+  .delete(listsController.remove);
 
 module.exports = router;
