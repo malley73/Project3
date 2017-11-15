@@ -4,6 +4,7 @@ const router = require("express").Router();
 // finding, updating, deleting, etc..
 const listsController = require("../../controllers/listsController");
 
+
 // Matches with "/api/lists" 
 router.route("/")
   // with GET
@@ -14,7 +15,14 @@ router.route("/")
   // with POST
   // .post(listController.create);
 
+// api for update get.
+router.route("/:list/:users")
+.get(listsController.findUpdate);
+
+
 // Matches with "/api/lists/:id"
+
+
 router
   .route("/:id")
   // with GET
