@@ -39,6 +39,7 @@ module.exports = {
     db.List
       .where('list',req.params.list)
       .where('users').all([req.params.users])
+      .select("list _id")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
       }

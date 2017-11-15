@@ -35,8 +35,5 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
-  // ,
-  // test: function(req,res){
-  //   res.json({"message":"this is a message"});
-  // }
+
 };
