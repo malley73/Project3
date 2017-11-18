@@ -59,8 +59,9 @@ const userSeed= [
     lists : [{
       name : "Grocery List",
       id : ""
+    }]
   }
-]
+];
 
 db.List
   .remove({})
