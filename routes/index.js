@@ -11,12 +11,15 @@ router.use("/api", apiRoutes);
 //router.route("/:list/:users")
 //.get(listsController.findUpdate);
 
-router.get('/mailer', handleMailer, function (req, res) {
+router.get('/mailer/:emailaddress', handleMailer, function (req, res) {
+  let emailTo = req.params.emailaddress;
+  console.log (emailTo);
   res.send('Hello World!')
 });
 
 function handleMailer(req, res) {
   console.log('Sending E-mail');
+  //console.log (emailTo);
   // Not the movie transporter!
   let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -30,7 +33,7 @@ function handleMailer(req, res) {
 
   let mailOptions = {
     from: 'onelistnh@gmail.com', // sender address
-    to: 'gamestoomuch@gmail.com', // list of receivers
+    to: req.params.emailaddress, // list of receivers
     subject: 'Email Example', // Subject line
     //text: text, // plaintext body
     html: '<b>You have a new list</b><br><a href="http://www.google.com">www.google.com</a>' // You can choose to send an HTML body instead
