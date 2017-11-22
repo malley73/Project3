@@ -5,22 +5,15 @@ const apiRoutes = require("./api");
 
 // API Routes
 router.use("/api", apiRoutes);
+
 // mailer route
-
-
-//router.route("/:list/:users")
-//.get(listsController.findUpdate);
-
 router.get('/mailer/:emailaddress', handleMailer, function (req, res) {
   let emailTo = req.params.emailaddress;
-  console.log (emailTo);
   res.send('Hello World!')
 });
 
 function handleMailer(req, res) {
   console.log('Sending E-mail');
-  //console.log (emailTo);
-  // Not the movie transporter!
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -51,8 +44,8 @@ function handleMailer(req, res) {
 }
 
 // If no API routes are hit, send the React app
-// router.use(function(req, res) {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 module.exports = router;
